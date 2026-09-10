@@ -27,7 +27,7 @@
   --pad: clamp(1.25rem, 5vw, 4.5rem);
   --max: 1440px;
 }
-
+ 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){
@@ -49,7 +49,7 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 :focus-visible{outline:2px solid var(--poente);outline-offset:3px;border-radius:2px}
 ::selection{background:rgba(165,80,42,.18);color:var(--mata)}
 section[id]{scroll-margin-top:5.5rem}
-
+ 
 /* ---------- utilitários ---------- */
 .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
 .eyebrow{
@@ -62,15 +62,15 @@ section[id]{scroll-margin-top:5.5rem}
 .sunmark circle{fill:var(--poente)}
 .sunmark line{stroke:currentColor;stroke-width:1}
 .dark .eyebrow{color:rgba(246,242,234,.55)}
-
+ 
 h1,h2,h3{font-family:var(--serif);font-weight:420;line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
 .display{font-size:clamp(2.4rem,5.6vw,4.6rem)}
 .title{font-size:clamp(1.9rem,3.8vw,3rem)}
 em{font-style:italic;font-weight:340}
-
+ 
 .lead{font-size:clamp(1.02rem,1.4vw,1.15rem);color:var(--pedra);max-width:34em}
 .dark .lead{color:rgba(246,242,234,.68)}
-
+ 
 /* ---------- botões ---------- */
 .btn{
   display:inline-flex;align-items:center;gap:.65rem;
@@ -90,13 +90,13 @@ em{font-style:italic;font-weight:340}
 .dark .btn-ghost{border-color:var(--linha-clara);color:var(--areia)}
 .dark .btn-ghost:hover{border-color:var(--areia)}
 .btn-lg{padding:1.15rem 2.2rem;font-size:1rem}
-
+ 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
-
+ 
 /* ---------- placeholders fotográficos ---------- */
 .ph{
   position:relative;overflow:hidden;background:var(--areia-2);
@@ -122,7 +122,7 @@ em{font-style:italic;font-weight:340}
 .ph .tag span{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase}
 .ph-hover{transition:transform .6s ease}
 a:hover .ph-hover, .ph-zoom:hover .ph-hover{transform:scale(1.03)}
-
+ 
 /* ---------- fotografias reais (substituem o placeholder) ---------- */
 .ph.has-img{background:var(--mata)}
 .ph.has-img::before{display:none}
@@ -131,7 +131,7 @@ a:hover .ph-hover, .ph-zoom:hover .ph-hover{transform:scale(1.03)}
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;display:block;
 }
-
+ 
 /* ---------- vídeo do hero ---------- */
 .hero-video{
   position:absolute;inset:0;width:100%;height:100%;
@@ -139,7 +139,7 @@ a:hover .ph-hover, .ph-zoom:hover .ph-hover{transform:scale(1.03)}
 }
 .hero-video.on{display:block}
 .hero .ph{z-index:0}
-
+ 
 /* ---------- CTA flutuante WhatsApp ---------- */
 .wa-float{
   position:fixed;z-index:58;
@@ -163,7 +163,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .wa-float span{display:none}
   .wa-float svg{width:24px;height:24px}
 }
-
+ 
 /* ============================================================
    CALENDÁRIO 2026 — painel compacto
    ============================================================ */
@@ -178,7 +178,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .cal-head .eyebrow{margin-bottom:1.4rem}
 .cal-head h2{max-width:15em}
 .cal-head p{color:var(--pedra);font-size:.95rem;max-width:26em}
-
+ 
 .cal-panel{
   border:1px solid var(--linha);border-radius:10px;overflow:hidden;
   background:rgba(255,255,255,.55);
@@ -203,7 +203,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .cal-tabs button[aria-selected="true"]{color:var(--mata);background:var(--areia-2)}
 .cal-tabs button[aria-selected="true"]::after{transform:scaleX(1)}
 .cal-tabs button.is-past{opacity:.4}
-
+ 
 .cal-body{display:grid;grid-template-columns:1fr .92fr}
 .cal-body > *{min-width:0}
 .cal-month{
@@ -237,7 +237,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .cal-month td.special span{background:var(--mata);color:var(--areia);font-weight:500}
 .cal-month td.special.holiday span{color:var(--areia)}
 .cal-month td.special.holiday span::after{background:rgba(246,242,234,.85)}
-
+ 
 .cal-side{
   padding:clamp(1.5rem,2.6vw,2.25rem);
   display:flex;flex-direction:column;gap:1.4rem;
@@ -263,7 +263,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .pill-special{background:var(--mata);color:var(--areia)}
 .cal-side .btn{justify-content:center}
 .cal-note-min{font-size:.78rem;color:var(--pedra);line-height:1.55}
-
+ 
 @media (max-width: 420px){
   .cal-side{padding:1.35rem 1.1rem}
   .cal-side .btn{padding-inline:1.15rem;font-size:.85rem}
@@ -274,7 +274,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .cal-month{border-right:none;border-bottom:1px solid var(--linha)}
   .cal-tabs button{min-width:76px;padding:.9rem .5rem}
 }
-
+ 
 /* ============================================================
    01 · HEADER
    ============================================================ */
@@ -320,7 +320,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .header .btn-header:hover{background:var(--poente);color:var(--areia)}
 .menu-toggle{display:none;padding:.4rem;z-index:70}
 .menu-toggle svg{width:26px;height:26px;display:block}
-
+ 
 /* menu mobile */
 .header.menu-open{background:transparent;box-shadow:none;color:var(--areia);backdrop-filter:none;-webkit-backdrop-filter:none}
 .mobile-menu{
@@ -336,12 +336,12 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   padding:.45rem 0;border-bottom:1px solid var(--linha-clara);
 }
 .mobile-menu .btn{justify-content:center}
-
+ 
 @media (max-width: 900px){
   .nav,.header .btn-header{display:none}
   .menu-toggle{display:block}
 }
-
+ 
 /* ============================================================
    02 · HERO
    ============================================================ */
@@ -383,7 +383,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   padding-bottom:.4rem;
 }
 @media (max-width: 700px){.hero-aside{display:none}}
-
+ 
 .hero-scroll{
   position:absolute;left:50%;bottom:0;z-index:3;
   width:1px;height:74px;overflow:hidden;
@@ -398,14 +398,14 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   60%,100%{transform:translateY(100%)}
 }
 @media (max-width: 860px){.hero-scroll{display:none}}
-
+ 
 .hero .ph, .hero-video{animation:respira 26s ease-in-out infinite alternate}
 @keyframes respira{from{transform:scale(1)}to{transform:scale(1.055)}}
 @media (prefers-reduced-motion: reduce){
   .hero .ph,.hero-video{animation:none}
   .hero-scroll::after{animation:none;opacity:.4}
 }
-
+ 
 /* ============================================================
    03 · DESTAQUES
    ============================================================ */
@@ -436,7 +436,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .highlight:nth-child(odd){border-left:none}
   .highlight:last-child{grid-column:1/-1;border-left:none}
 }
-
+ 
 /* ============================================================
    04 · APRESENTAÇÃO
    ============================================================ */
@@ -462,7 +462,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .about-photos .ph-small{left:auto;right:-.5rem;bottom:-2.2rem;width:44%}
   .about-photos{margin-bottom:2.5rem}
 }
-
+ 
 /* ============================================================
    05 · EXPERIÊNCIA
    ============================================================ */
@@ -492,7 +492,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .exp-card:nth-child(2){transform:none}
   .exp-card .ph{aspect-ratio:4/5}
 }
-
+ 
 /* ============================================================
    06 · ESTRUTURA E LAZER
    ============================================================ */
@@ -544,7 +544,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .also-list{columns:2}
 }
 @media (max-width: 520px){.also-list{columns:1}}
-
+ 
 /* ============================================================
    07 · ACOMODAÇÕES
    ============================================================ */
@@ -590,7 +590,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   }
   .rooms-row .ph{flex:0 0 72%;scroll-snap-align:start}
 }
-
+ 
 /* ============================================================
    08 · GALERIA
    ============================================================ */
@@ -623,9 +623,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   .g6{grid-column:1/-1;aspect-ratio:2/1}
   .g7{grid-column:1/-1;aspect-ratio:4/1}
 }
-}
-}
-
+ 
 /* ============================================================
    09 · LOCALIZAÇÃO
    ============================================================ */
@@ -671,7 +669,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .map-fallback span{font-size:.88rem;color:var(--pedra)}
 .map-fallback .btn{margin-top:1.1rem}
 @media (max-width: 900px){.location-grid{grid-template-columns:1fr}}
-
+ 
 /* ============================================================
    10 · DISPONIBILIDADE
    ============================================================ */
@@ -694,7 +692,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   margin-top:2.2rem;font-size:.85rem;color:rgba(246,242,234,.55);
   display:flex;gap:1.75rem;flex-wrap:wrap;
 }
-
+ 
 /* ============================================================
    11 · INFORMAÇÕES
    ============================================================ */
@@ -718,7 +716,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .info-item strong{font-weight:600}
 @media (max-width: 900px){.info-grid{grid-template-columns:1fr 1fr}}
 @media (max-width: 560px){.info-grid{grid-template-columns:1fr}}
-
+ 
 /* ============================================================
    12 · FAQ
    ============================================================ */
@@ -757,7 +755,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   padding:0 0 1.5rem;color:var(--pedra);max-width:44em;font-size:.95rem;
 }
 @media (max-width: 800px){.faq-grid{grid-template-columns:1fr;gap:2.5rem}}
-
+ 
 /* ============================================================
    13 · CTA FINAL
    ============================================================ */
@@ -776,7 +774,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 .final .sunmark line{stroke:rgba(246,242,234,.7)}
 .final h2{font-size:clamp(2.3rem,5.4vw,4.3rem);margin-bottom:1.2rem}
 .final p{color:rgba(246,242,234,.8);margin-bottom:2.4rem}
-
+ 
 /* ============================================================
    14 · FOOTER
    ============================================================ */
@@ -809,7 +807,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 </style>
 </head>
 <body>
-
+ 
 <!-- ================= HEADER ================= -->
 <header class="header" id="topo">
   <div class="header-inner">
@@ -831,7 +829,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </button>
   </div>
 </header>
-
+ 
 <!-- menu mobile -->
 <div class="mobile-menu" id="menu-mobile" aria-hidden="true">
   <nav aria-label="Navegação móvel">
@@ -844,9 +842,9 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   </nav>
   <a class="btn btn-light btn-lg" href="https://wa.me/5531987921296?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Recanto%20P%C3%B4r%20do%20Sol." target="_blank" rel="noopener">Consultar disponibilidade</a>
 </div>
-
+ 
 <main>
-
+ 
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="ph" data-slot="hero" data-t="poente" aria-hidden="true"></div>
@@ -871,7 +869,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   </div>
   <a class="hero-scroll" href="#recanto" aria-label="Rolar para conhecer o Recanto"></a>
 </section>
-
+ 
 <!-- ================= DESTAQUES ================= -->
 <section class="highlights" aria-label="Destaques do Recanto">
   <div class="highlights-row">
@@ -882,7 +880,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     <div class="highlight reveal d3"><span class="num"><em>Condomínio</em></span><span class="lbl">fechado · portaria 24h</span></div>
   </div>
 </section>
-
+ 
 <!-- ================= APRESENTAÇÃO ================= -->
 <section class="about" id="recanto">
   <div class="wrap about-grid">
@@ -906,7 +904,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= EXPERIÊNCIA ================= -->
 <section class="experience dark">
   <div class="wrap">
@@ -936,7 +934,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= ESTRUTURA ================= -->
 <section class="structure" id="estrutura">
   <div class="wrap">
@@ -947,7 +945,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
       </div>
       <h2 class="title">Espaço de sobra para o dia inteiro.</h2>
     </div>
-
+ 
     <article class="feature reveal">
       <div class="f-media"><div class="ph ph-zoom" data-slot="estrutura-piscina" data-t="piscina"><div class="ph-hover" style="position:absolute;inset:0"></div><div class="tag"><span>Piscina</span></div></div></div>
       <div>
@@ -958,7 +956,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
         </ul>
       </div>
     </article>
-
+ 
     <article class="feature reveal">
       <div class="f-media"><div class="ph ph-zoom" data-slot="estrutura-gourmet" data-t="gourmet"><div class="ph-hover" style="position:absolute;inset:0"></div><div class="tag"><span>Área gourmet</span></div></div></div>
       <div>
@@ -969,7 +967,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
         </ul>
       </div>
     </article>
-
+ 
     <article class="feature reveal">
       <div class="f-media"><div class="ph ph-zoom" data-slot="estrutura-externas" data-t="jardim"><div class="ph-hover" style="position:absolute;inset:0"></div><div class="tag"><span>Áreas externas</span></div></div></div>
       <div>
@@ -980,7 +978,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
         </ul>
       </div>
     </article>
-
+ 
     <div class="also reveal">
       <h3>Também no Recanto</h3>
       <ul class="also-list">
@@ -999,7 +997,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= ACOMODAÇÕES ================= -->
 <section class="rooms" id="acomodacoes">
   <div class="wrap">
@@ -1025,7 +1023,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= GALERIA ================= -->
 <section class="gallery" id="galeria">
   <div class="wrap">
@@ -1050,7 +1048,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= LOCALIZAÇÃO ================= -->
 <section class="location" id="localizacao">
   <div class="wrap location-grid">
@@ -1089,7 +1087,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= CALENDÁRIO 2026 ================= -->
 <section class="calendar" id="calendario">
   <div class="wrap">
@@ -1103,7 +1101,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
       </div>
       <p class="reveal d1">Feriados e datas especiais são procurados com meses de antecedência. Veja o mês que você tem em mente e fale com o Recanto.</p>
     </div>
-
+ 
     <div class="cal-panel reveal">
       <div class="cal-tabs" role="tablist" aria-label="Meses de 2026" id="cal-tabs"></div>
       <div class="cal-body">
@@ -1121,7 +1119,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= DISPONIBILIDADE ================= -->
 <section class="booking dark" id="disponibilidade">
   <div class="wrap booking-inner">
@@ -1141,7 +1139,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= INFORMAÇÕES ================= -->
 <section class="info">
   <div class="wrap">
@@ -1180,7 +1178,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= FAQ ================= -->
 <section class="faq" id="duvidas">
   <div class="wrap faq-grid">
@@ -1224,7 +1222,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= CTA FINAL ================= -->
 <section class="final">
   <div class="ph" data-slot="cta-final" data-t="poente" aria-hidden="true"></div>
@@ -1238,9 +1236,9 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </a>
   </div>
 </section>
-
+ 
 </main>
-
+ 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="wrap">
@@ -1274,7 +1272,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
     </div>
   </div>
 </footer>
-
+ 
 <!-- ================= CTA FLUTUANTE ================= -->
 <a class="wa-float" id="wa-float"
    href="https://wa.me/5531987921296?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Recanto%20P%C3%B4r%20do%20Sol."
@@ -1282,7 +1280,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.82 9.82 0 0 1 2.892 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.585 0 11.946-5.359 11.949-11.945a11.9 11.9 0 0 0-3.497-8.455"/></svg>
   <span>Consultar disponibilidade</span>
 </a>
-
+ 
 <script>
 /* ============================================================
    MÍDIA DO SITE — único lugar para trocar fotos e vídeo
@@ -1295,7 +1293,7 @@ const MEDIA = {
   // vídeo de fundo do topo (loop contínuo, sem áudio)
   heroVideo: "video/hero.mp4",
   heroPoster: "fotos/hero.jpg",
-
+ 
   fotos: {
     "hero":                { src:"fotos/hero.jpg", mobile:"fotos/hero-mobile.jpg", alt:"Piscina com cascata e a casa ao fundo" },
     "sobre-1":             { src:"fotos/sobre-piscina.jpg", alt:"Piscina e área coberta do Recanto Pôr do Sol" },
@@ -1323,7 +1321,7 @@ const MEDIA = {
     "cta-final":           { src:"fotos/cta-final.jpg", mobile:"fotos/cta-final-mobile.jpg", alt:"Espreguiçadeiras junto à piscina" }
   }
 };
-
+ 
 // aplica as fotos disponíveis nos respectivos espaços
 const telaEstreita = window.matchMedia('(max-width: 900px)').matches;
 document.querySelectorAll('.ph[data-slot]').forEach(box => {
@@ -1340,7 +1338,7 @@ document.querySelectorAll('.ph[data-slot]').forEach(box => {
   box.prepend(img);
   box.classList.add('has-img');
 });
-
+ 
 // vídeo do topo
 const heroVideo = document.getElementById('hero-video');
 const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1353,19 +1351,19 @@ if(MEDIA.heroVideo && !semMovimento && telaPequena){
   heroVideo.classList.add('on');
   heroVideo.play().catch(() => {});
 }
-
+ 
 // ---------- header no scroll ----------
 const header = document.querySelector('.header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
 onScroll();
 window.addEventListener('scroll', onScroll, {passive:true});
-
+ 
 // ---------- menu mobile ----------
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.getElementById('menu-mobile');
 const iconOpen = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>';
 const iconClose = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
-
+ 
 function setMenu(open){
   menu.classList.toggle('open', open);
   menu.setAttribute('aria-hidden', String(!open));
@@ -1380,7 +1378,7 @@ function setMenu(open){
 toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') setMenu(false); });
-
+ 
 // ---------- reveals ----------
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1388,13 +1386,13 @@ const io = new IntersectionObserver((entries) => {
   });
 }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
+ 
 // ---------- calendário 2026 ----------
 const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const ABREV = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 const DIAS  = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
-
+ 
 // feriados de 2026 (fonte: calendário do projeto) — chave "mês-dia", mês 1–12
 const FERIADOS = {
   '1-1':'Confraternização Universal',
@@ -1410,14 +1408,14 @@ const FERIADOS = {
   '12-8':'Imaculada Conceição',
   '12-25':'Natal'
 };
-
+ 
 // períodos de maior procura confirmados nos materiais do Recanto
 const ESPECIAIS = [
   {mes:4,  de:1,  ate:4,  nome:'Semana Santa'},
   {mes:12, de:24, ate:27, nome:'Natal'},
   {mes:12, de:30, ate:31, nome:'Ano Novo'}
 ];
-
+ 
 const hoje = new Date();
 const inicioHoje = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
 const calTabs  = document.getElementById('cal-tabs');
@@ -1425,17 +1423,17 @@ const calMonth = document.getElementById('cal-month');
 const calNotes = document.getElementById('cal-notes');
 const calNome  = document.getElementById('cal-mes-nome');
 const calCta   = document.getElementById('cal-cta');
-
+ 
 function whatsappMes(nome){
   const texto = `Olá! Gostaria de consultar a disponibilidade do Recanto Pôr do Sol em ${nome.toLowerCase()} de 2026.`;
   return 'https://wa.me/5531987921296?text=' + encodeURIComponent(texto);
 }
-
+ 
 function montarMes(i){
   const mes = i + 1;
   const primeiro = new Date(2026, i, 1).getDay();
   const total = new Date(2026, mes, 0).getDate();
-
+ 
   const celulas = [];
   for(let v = 0; v < primeiro; v++) celulas.push('<td></td>');
   for(let d = 1; d <= total; d++){
@@ -1449,18 +1447,18 @@ function montarMes(i){
     celulas.push(`<td class="${classes.join(' ')}"${feriado ? ` title="${feriado}"` : ''}><span>${d}</span></td>`);
   }
   while(celulas.length % 7) celulas.push('<td></td>');
-
+ 
   let corpo = '';
   for(let l = 0; l < celulas.length; l += 7){
     corpo += `<tr>${celulas.slice(l, l + 7).join('')}</tr>`;
   }
-
+ 
   const cabecalho = DIAS.map((d, n) =>
     `<th class="${n === 0 || n === 6 ? 'wk' : ''}">${d}</th>`).join('');
-
+ 
   return `<table><thead><tr>${cabecalho}</tr></thead><tbody>${corpo}</tbody></table>`;
 }
-
+ 
 function montarNotas(i){
   const mes = i + 1;
   const periodos = ESPECIAIS.filter(p => p.mes === mes);
@@ -1474,7 +1472,7 @@ function montarNotas(i){
     ? itens.join('')
     : `<li class="empty">Nenhum feriado em ${MESES[i].toLowerCase()}.</li>`;
 }
-
+ 
 function abrirMes(i){
   calMonth.classList.add('fading');
   window.setTimeout(() => {
@@ -1487,25 +1485,25 @@ function abrirMes(i){
   calTabs.querySelectorAll('button').forEach((b, n) =>
     b.setAttribute('aria-selected', String(n === i)));
 }
-
+ 
 if(calTabs){
   const mesAtual = hoje.getFullYear() === 2026 ? hoje.getMonth() : 0;
-
+ 
   calTabs.innerHTML = ABREV.map((m, i) => {
     const passado = new Date(2026, i + 1, 0) < inicioHoje;
     return `<button type="button" role="tab" aria-selected="false"
       class="${passado ? 'is-past' : ''}">${m}</button>`;
   }).join('');
-
+ 
   const centralizarTab = (b, suave) => {
     const alvo = b.offsetLeft - (calTabs.clientWidth - b.clientWidth) / 2;
     calTabs.scrollTo({left: Math.max(0, alvo), behavior: suave ? 'smooth' : 'auto'});
   };
-
+ 
   calTabs.querySelectorAll('button').forEach((b, i) => {
     b.addEventListener('click', () => { abrirMes(i); centralizarTab(b, true); });
   });
-
+ 
   // primeira renderização, sem transição
   calMonth.innerHTML = montarMes(mesAtual);
   calNotes.innerHTML = montarNotas(mesAtual);
@@ -1515,9 +1513,10 @@ if(calTabs){
   tabAtual.setAttribute('aria-selected', 'true');
   centralizarTab(tabAtual, false);
 }
-
+ 
 // ---------- ano do copyright ----------
 document.getElementById('ano').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+ 
