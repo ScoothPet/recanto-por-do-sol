@@ -845,7 +845,7 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/>
         <g class="ondas"><path d="M15 9.5a3.5 3.5 0 0 1 0 5"/><path d="M17.6 7a7 7 0 0 1 0 10"/></g>
-        <line class="risco" x1="15.5" y1="9.5" x2="20.5" y2="14.5"/>
+        <line class="risco" x1="3.5" y1="3.5" x2="20.5" y2="20.5"/>
       </svg>
     </button>
     <a class="btn btn-header" href="https://wa.me/5531987921296?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Recanto%20P%C3%B4r%20do%20Sol." target="_blank" rel="noopener">Consultar disponibilidade</a>
@@ -1398,17 +1398,24 @@ if(MEDIA.trilha && !semMovimento){
   trilha.addEventListener('error', () => btnSom.remove(), {once:true});
   trilha.load();
  
-  function ajustarVolume(alvo, aoFim){
+  // o iOS ignora o ajuste de volume por código: detectamos e caímos no modo direto
+  trilha.volume = 0.5;
+  const controlaVolume = Math.abs(trilha.volume - 0.5) < 0.01;
+  trilha.volume = controlaVolume ? 0 : 1;
+ 
+  // baseado em número de passos, nunca na leitura do volume — assim sempre chega ao fim
+  function transitar(para, ms, aoFim){
+    if(!controlaVolume){ if(aoFim) aoFim(); return; }
     window.clearInterval(transicao);
+    const de = trilha.volume;
+    const passos = Math.max(1, Math.round(ms / 40));
+    let i = 0;
     transicao = window.setInterval(() => {
-      const passo = alvo > trilha.volume ? .015 : -.015;
-      const novo = trilha.volume + passo;
-      if((passo > 0 && novo >= alvo) || (passo < 0 && novo <= alvo)){
-        trilha.volume = alvo;
+      i++;
+      trilha.volume = Math.max(0, Math.min(1, de + (para - de) * (i / passos)));
+      if(i >= passos){
         window.clearInterval(transicao);
         if(aoFim) aoFim();
-      } else {
-        trilha.volume = Math.max(0, Math.min(1, novo));
       }
     }, 40);
   }
@@ -1419,11 +1426,14 @@ if(MEDIA.trilha && !semMovimento){
     btnSom.setAttribute('aria-pressed', String(tocando));
     btnSom.setAttribute('aria-label', tocando ? 'Desativar música de fundo' : 'Ativar música de fundo');
     if(tocando){
-      trilha.play().then(() => ajustarVolume(VOL_MAX)).catch(() => {
-        tocando = false; btnSom.classList.remove('on');
+      trilha.play().then(() => transitar(VOL_MAX, 1200)).catch(() => {
+        tocando = false;
+        btnSom.classList.remove('on');
+        btnSom.setAttribute('aria-pressed', 'false');
       });
     } else {
-      ajustarVolume(0, () => trilha.pause());
+      transitar(0, 700, () => trilha.pause());
+      window.setTimeout(() => { if(!tocando) trilha.pause(); }, 900);
     }
   });
  
