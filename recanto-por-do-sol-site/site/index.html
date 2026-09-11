@@ -318,6 +318,21 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 }
 .header.scrolled .btn-header{background:var(--mata);color:var(--areia)}
 .header .btn-header:hover{background:var(--poente);color:var(--areia)}
+.header-actions{display:flex;align-items:center;gap:.85rem}
+.sound-toggle{
+  display:none;width:36px;height:36px;flex:none;
+  align-items:center;justify-content:center;
+  border:1px solid currentColor;border-radius:50%;opacity:.55;
+  transition:opacity .25s ease,border-color .25s ease;
+}
+.sound-toggle.avail{display:inline-flex}
+.sound-toggle:hover{opacity:1}
+.sound-toggle svg{width:17px;height:17px;display:block}
+.sound-toggle .ondas{opacity:0;transition:opacity .3s ease}
+.sound-toggle .risco{opacity:1;transition:opacity .3s ease}
+.sound-toggle.on{opacity:1;border-color:var(--poente)}
+.sound-toggle.on .ondas{opacity:1}
+.sound-toggle.on .risco{opacity:0}
 .menu-toggle{display:none;padding:.4rem;z-index:70}
 .menu-toggle svg{width:26px;height:26px;display:block}
  
@@ -340,6 +355,8 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
 @media (max-width: 900px){
   .nav,.header .btn-header{display:none}
   .menu-toggle{display:block}
+  .header-inner{gap:.75rem}
+  .header-actions{margin-left:auto}
 }
  
 /* ============================================================
@@ -823,7 +840,16 @@ body.menu-open-body .wa-float{opacity:0;visibility:hidden}
       <a href="#calendario">Calendário</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
+    <div class="header-actions">
+    <button class="sound-toggle" id="sound-toggle" aria-label="Ativar música de fundo" aria-pressed="false" title="Música de fundo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"/>
+        <g class="ondas"><path d="M15 9.5a3.5 3.5 0 0 1 0 5"/><path d="M17.6 7a7 7 0 0 1 0 10"/></g>
+        <line class="risco" x1="15.5" y1="9.5" x2="20.5" y2="14.5"/>
+      </svg>
+    </button>
     <a class="btn btn-header" href="https://wa.me/5531987921296?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Recanto%20P%C3%B4r%20do%20Sol." target="_blank" rel="noopener">Consultar disponibilidade</a>
+    </div>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
     </button>
@@ -1294,6 +1320,9 @@ const MEDIA = {
   heroVideo: "video/hero.mp4",
   heroPoster: "fotos/hero.jpg",
  
+  // trilha de fundo — deixe vazio para esconder o botão de som
+  trilha: "audio/trilha.mp3",
+ 
   fotos: {
     "hero":                { src:"fotos/hero.jpg", mobile:"fotos/hero-mobile.jpg", alt:"Piscina com cascata e a casa ao fundo" },
     "sobre-1":             { src:"fotos/sobre-piscina.jpg", alt:"Piscina e área coberta do Recanto Pôr do Sol" },
@@ -1350,6 +1379,61 @@ if(MEDIA.heroVideo && !semMovimento && telaPequena){
   heroVideo.preload = 'auto';
   heroVideo.classList.add('on');
   heroVideo.play().catch(() => {});
+}
+ 
+// ---------- trilha de fundo (sempre começa desligada) ----------
+const btnSom = document.getElementById('sound-toggle');
+if(MEDIA.trilha && !semMovimento){
+  const trilha = new Audio();
+  trilha.src = MEDIA.trilha;
+  trilha.loop = true;
+  trilha.preload = 'metadata';
+  trilha.volume = 0;
+ 
+  const VOL_MAX = 0.25;
+  let tocando = false, transicao = null;
+ 
+  // só oferece o botão se o arquivo realmente existir
+  trilha.addEventListener('loadedmetadata', () => btnSom.classList.add('avail'), {once:true});
+  trilha.addEventListener('error', () => btnSom.remove(), {once:true});
+  trilha.load();
+ 
+  function ajustarVolume(alvo, aoFim){
+    window.clearInterval(transicao);
+    transicao = window.setInterval(() => {
+      const passo = alvo > trilha.volume ? .015 : -.015;
+      const novo = trilha.volume + passo;
+      if((passo > 0 && novo >= alvo) || (passo < 0 && novo <= alvo)){
+        trilha.volume = alvo;
+        window.clearInterval(transicao);
+        if(aoFim) aoFim();
+      } else {
+        trilha.volume = Math.max(0, Math.min(1, novo));
+      }
+    }, 40);
+  }
+ 
+  btnSom.addEventListener('click', () => {
+    tocando = !tocando;
+    btnSom.classList.toggle('on', tocando);
+    btnSom.setAttribute('aria-pressed', String(tocando));
+    btnSom.setAttribute('aria-label', tocando ? 'Desativar música de fundo' : 'Ativar música de fundo');
+    if(tocando){
+      trilha.play().then(() => ajustarVolume(VOL_MAX)).catch(() => {
+        tocando = false; btnSom.classList.remove('on');
+      });
+    } else {
+      ajustarVolume(0, () => trilha.pause());
+    }
+  });
+ 
+  // silencia quando a aba sai de foco
+  document.addEventListener('visibilitychange', () => {
+    if(!tocando) return;
+    if(document.hidden){ trilha.pause(); } else { trilha.play().catch(() => {}); }
+  });
+} else if(btnSom){
+  btnSom.remove();
 }
  
 // ---------- header no scroll ----------
